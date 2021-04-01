@@ -18,6 +18,13 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Core.cpp" />
+    <ClCompile Include="main.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Core.h" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <ProjectGuid>{b48c91e2-be73-487d-ab9e-81e62ba52bcb}</ProjectGuid>
