@@ -10,12 +10,14 @@ public:
 	~Item();
 	Item(SDL_Renderer* render, string name);
 	void Update();
+	bool Dead(int bbel);
 	void Draw(SDL_Renderer* render);
 private:
 
 
 protected:
 	int value;
+	int belt;
 	int x, y;
 	Image* image;
 };

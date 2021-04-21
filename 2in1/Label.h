@@ -13,7 +13,7 @@ public:
 	void DrawInt(SDL_Renderer* render, int a, int x, int y);
 private:
 	TTF_Font* font;
-	SDL_Color color{ 255,0,0 };
+	SDL_Color color{ 255,255,255 };
 	SDL_Surface* temp;
 	SDL_Texture* text;
 	SDL_Rect clipRect;

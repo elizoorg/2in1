@@ -6,6 +6,7 @@
 #include "DynamicImage.h"
 #include "Item.h"
 #include "Coin.h"
+#include "Background.h"
 using namespace std;
 class Core
 {
@@ -26,8 +27,15 @@ private:
 	bool _end;
 	int mouseX, mouseY;
 
+	int belt = 1;
+	int score = 0;
+
+	Background* menu;
+	Background* game;
+
 	Label label;
 	DynamicImage* image;
+	DynamicImage* player;
 
 	Item* item;
 	Coin* coin;
