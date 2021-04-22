@@ -7,6 +7,8 @@
 #include "Item.h"
 #include "Coin.h"
 #include "Background.h"
+#include "GUI.h"
+#include "GUI.h"
 using namespace std;
 class Core
 {
@@ -40,10 +42,11 @@ private:
 	Item* item;
 	Coin* coin;
 
+
+	GUI menugui;
+
 	vector <Item*> items;
 
 	Button *button;
-	vector <Button*> buttons;
-
 };
 

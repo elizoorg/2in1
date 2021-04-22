@@ -11,7 +11,6 @@ Core::~Core()
 {
     delete button;
     delete image;
-    buttons.clear();
     SDL_DestroyRenderer(render);
     SDL_DestroyWindow(window);
 
@@ -28,12 +27,20 @@ bool Core::Init()
         SDL_WINDOWPOS_CENTERED,
         900, 600, 0);
     render = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED || SDL_RENDERER_SOFTWARE);
-    button = new Button(100, 100, 300, 100);
-    buttons.push_back(button);
-    button = new Button(300, 300, 300, 100);
-    buttons.push_back(button);
-    button = new Button(300, 500, 300, 100);
-    buttons.push_back(button);
+    SDL_Color col{ 255,0,0 };
+    SDL_Color col2{ 255,255,255 };
+    button = new Button(100, 100, 300, 100,col,col2);
+    menugui.addButton(button);
+   
+    button = new Button(300, 300, 300, 100,col,col2);
+    menugui.addButton(button);
+
+    button = new Button(300, 500, 300, 100, col, col2);
+    menugui.addButton(button);
+
+    label.InitFont("arial.ttf", 32);
+    menugui.addLabel(&label);
+    
 
     for (int i = 0; i < 10; i++) {
         item = new Item(render, "box.png");
@@ -45,8 +52,7 @@ bool Core::Init()
     image = new DynamicImage(render, "belt.png",1);
     player = new DynamicImage(render, "player.png", 64);
     game = new Background(render, "gamefon.png");
-
-    label.InitFont("arial.ttf", 32);
+    menu = new Background(render, "fon.png");
 
     return window && render;
 }
@@ -72,8 +78,7 @@ bool Core::Update()
 
     image->Update();
     player->Update();
-
-    
+    menugui.Update(mouseX,mouseY);
 
     for (auto a : items)
         a->Update();
@@ -86,13 +91,12 @@ void Core::Draw()
 {
     SDL_SetRenderDrawColor(render, 0, 0, 0, 0);
     SDL_RenderClear(render);
-    game->Draw(render);
-    for (auto a : buttons)
-        if (a->isIntersect(mouseX,mouseY))
-          a->Draw(render, SDL_Color{ 255, 0, 0 });
-        else 
-          a->Draw(render, SDL_Color{ 255, 255, 255 });
+    menu->Draw(render);
+
+    menugui.Draw(render);
+   
     label.DrawInt(render, score, 0, 200);
+    
     for(int i =0;i<10;i++)
         for(int j = 0 ; j < 3; j++)
     image->Draw(render,260+64*i,128*j+264);
