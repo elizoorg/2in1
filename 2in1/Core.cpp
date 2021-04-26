@@ -140,7 +140,7 @@ bool Core::Update()
 		for (auto a : items)
 			if (a->Dead(player->getBelt() - 1)) score += a->getValue();
 		ms = SDL_GetTicks() - start + mt;
-		if (ms > 60000) { gamemode = NAMEINPUT; SDL_StartTextInput(); }
+		if (ms > 10000) { gamemode = NAMEINPUT; SDL_StartTextInput(); }
 	}
 
 	return false;
@@ -210,5 +210,6 @@ void Core::Reset()
 		items.push_back(poop);
 	}
 	score = 0;
+	ms = 0;
 	inputText = "Player";
 }
