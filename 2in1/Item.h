@@ -11,7 +11,7 @@ public:
 	Item(SDL_Renderer* render, string name);
 	void Update();
 	bool Dead(int bbel);
-	int getValue() { cout << value << endl;  return value; }
+	int getValue() {  return value; }
 	void Draw(SDL_Renderer* render);
 private:
 
