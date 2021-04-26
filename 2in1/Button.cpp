@@ -8,7 +8,7 @@ Button::~Button()
 {
 }
 
-Button::Button(int x, int y, int w, int h,SDL_Color color1,SDL_Color color2)
+Button::Button(int x, int y, int w, int h, SDL_Color color1, SDL_Color color2)
 {
 	col1 = color1;
 	col2 = color2;
@@ -18,11 +18,9 @@ Button::Button(int x, int y, int w, int h,SDL_Color color1,SDL_Color color2)
 	rect.h = h;
 }
 
-
-
 void Button::Draw(SDL_Renderer* render)
 {
-	if(pressed)
+	if (pressed)
 		SDL_SetRenderDrawColor(render, col1.r, col1.g, col1.b, 0);
 	else
 		SDL_SetRenderDrawColor(render, col2.r, col2.g, col2.b, 0);

@@ -6,7 +6,6 @@ public:
 	Coin();
 	~Coin();
 	Coin(SDL_Renderer* render, string name) :Item(render, name) {
-		value = -5;
+		value = 5;
 	};
 };
-

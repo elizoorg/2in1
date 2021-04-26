@@ -16,4 +16,3 @@ public:
 private:
 	SDL_Texture* texture;
 };
-

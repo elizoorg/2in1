@@ -10,6 +10,7 @@ public:
 	~Label();
 	void InitFont(string str, int size);
 	void DrawString(SDL_Renderer* render, string str, int x, int y);
+	void DrawStringCentered(SDL_Renderer* render, string str, int x, int y);
 	void DrawInt(SDL_Renderer* render, int a, int x, int y);
 private:
 	TTF_Font* font;

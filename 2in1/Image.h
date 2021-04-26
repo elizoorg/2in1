@@ -10,9 +10,8 @@ public:
 	Image();
 	~Image();
 	Image(SDL_Renderer* render, string name);
-	void Draw(SDL_Renderer* render,int x,int y);
+	void Draw(SDL_Renderer* render, int x, int y);
 private:
 	SDL_Texture* texture;
 	SDL_Rect s_Rect;
 };
-
